@@ -1,0 +1,343 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<head>
+	<meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Simple House Template</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:400" rel="stylesheet" />    
+	<link href="{% static 'css/templatemo-style.css' %}" rel="stylesheet" />
+</head>
+
+
+<!--Simple House-->
+
+<!--https://templatemo.com/tm-539-simple-house-->
+
+
+<body>
+
+
+	<div class="container">
+<!--	Top box-->
+<!--		 Logo & Site Name-->
+		<div class="placeholder">
+			<div class="parallax-window" data-parallax="scroll" data-image-src="{% static 'img/travell.jpg' %}">
+				<div class="tm-header">
+					<div class="row tm-header-inner">
+						<div class="col-md-6 col-12">
+<!--							<img src="{% static 'img/simple-house-logo.png' %}" alt="Logo" class="tm-site-logo" />-->
+							<div class="tm-site-text-box">
+								<h1 style="background-color:red"><b>TAKE A TRIP </b></h1>
+<!--								<h6 class="tm-site-description">new restaurant template</h6>-->
+							</div>
+						</div>
+						<nav class="col-md-6 col-12 tm-nav">
+							<ul class="tm-nav-ul">
+								<h2><li class="tm-nav-li"><a href="index.html" class="tm-nav-link active" style="color:red">Home</a></li></h2>
+								{% if user.is_authenticated %}
+								<h2 style="color:black"><li>Hai {{user.username}}</li></h2>
+								<h2><li class="tm-nav-li"><a href="accounts/logout" class="tm-nav-link" style="color: green">logout</a></li></h2>
+								{% else %}
+								<h2 ><li class="tm-nav-li"><a href="accounts/register" class="tm-nav-link" style="color: red">register</a></li></h2>
+									<h2><li class="tm-nav-li"><a href="accounts/login" class="tm-nav-link" style="color: red">login</a></li></h2>
+								{% endif %}
+							</ul>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<main>
+			<header class="row tm-welcome-section">
+				<img src="{% static 'img/welcome.jpg' %}" style="width:260px;height:200px;">
+				<h2 class="col-12 text-center tm-section-title">TAKE A TRIP</h2>
+				<p class="col-12 text-center" style="color:red" >TAKE A TRIP is a company that help people to visit different tourist countries in world like Spain, Germany etc.
+					Those who are interested can use this website for booking your trip.You can register by giving your name,Email Id,Mobile number and other required fields.Our  Agents will contact you and guide you.Different places that u can visit are given below.We provide you transportation,food and staying facilities.Dont leave this chance.Use it wisely and spend this christmas season with your loved ones in the your favourite place.
+			</header>
+			
+<!--			<div class="tm-paging-links">-->
+<!--				<nav>-->
+<!--					<ul>-->
+<!--						<li class="tm-paging-item"><a href="#" class="tm-paging-link active">Pizza</a></li>-->
+<!--						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Salad</a></li>-->
+<!--						<li class="tm-paging-item"><a href="#" class="tm-paging-link">Noodle</a></li>-->
+<!--					</ul>-->
+<!--				</nav>-->
+<!--			</div>-->
+
+			<!-- Gallery -->
+			<div class="row tm-gallery">
+				<!-- gallery page 1 -->
+				<div id="tm-gallery-page-pizza" class="tm-gallery-page">
+					{% for i in results %}
+					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">
+						<figure>
+							<img src={{i.img.url}} alt="" style="width:300px;height:200px">
+							<figcaption>
+							<h4 class="tm-gallery-title"> <a href="{% url 'myapp:detail' i.id %}">{{i.name}}</a> </h4>
+<!--								<p class="tm-gallery-description">{{result.desc}}</p>-->
+<!--								<p class="tm-gallery-price">${{result.price}}</p>-->
+							</figcaption>
+
+						</figure>
+						<br>
+					</article>
+
+					{% endfor %}
+					<img src="{% static 'img/travel10.jpg' %}" style="width:560px;height:450px;"><img src="{% static 'img/travel4.jpg' %}" style="width:560px;height:450px;">
+					<img src="{% static 'img/travell3.jpg' %}" style="width:560px;height:450px;"><img src="{% static 'img/travell4.jpg' %}" style="width:560px;height:450px;">
+					<img src="{% static 'img/travell1.jpg' %}" style="width:560px;height:450px;"><img src="{% static 'img/travell2.jpg' %}" style="width:560px;height:450px;">
+					<p><h3><i>We are one of the best travel agency in Kerala.Everyone is satisfied with our
+					services.We Provide best of everything for our customers with a minimum expense.</i></h3></p>
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/02.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Aliquam sagittis</h4>-->
+<!--								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>-->
+<!--								<p class="tm-gallery-price">$65 / $70</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/03.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Sed varius turpis</h4>-->
+<!--								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>-->
+<!--								<p class="tm-gallery-price">$30.50</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/04.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Aliquam sagittis</h4>-->
+<!--								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>-->
+<!--								<p class="tm-gallery-price">$25.50</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/05.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Maecenas eget justo</h4>-->
+<!--								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>-->
+<!--								<p class="tm-gallery-price">$80.25</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/06.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Quisque et felis eros</h4>-->
+<!--								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>-->
+<!--								<p class="tm-gallery-price">$20 / $40 / $60</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/07.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Sed ultricies dui</h4>-->
+<!--								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>-->
+<!--								<p class="tm-gallery-price">$94</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/08.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Donec porta consequat</h4>-->
+<!--								<p class="tm-gallery-description">Nam in suscipit nisi, sit amet consectetur metus. Ut sit amet tellus accumsan</p>-->
+<!--								<p class="tm-gallery-price">$15</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--				</div> &lt;!&ndash; gallery page 1 &ndash;&gt;-->
+
+<!--				&lt;!&ndash; gallery page 2 &ndash;&gt;-->
+<!--				<div id="tm-gallery-page-salad" class="tm-gallery-page hidden">-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/04.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Salad Menu One</h4>-->
+<!--								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>-->
+<!--								<p class="tm-gallery-price">$25</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/03.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Second Title Salad</h4>-->
+<!--								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>-->
+<!--								<p class="tm-gallery-price">$30</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/05.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Third Salad Item</h4>-->
+<!--								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>-->
+<!--								<p class="tm-gallery-price">$45</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/01.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Superior Salad</h4>-->
+<!--								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>-->
+<!--								<p class="tm-gallery-price">$50</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/08.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Sed ultricies dui</h4>-->
+<!--								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>-->
+<!--								<p class="tm-gallery-price">$55 / $60</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/07.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Maecenas eget justo</h4>-->
+<!--								<p class="tm-gallery-description">Proin eu velit egestas, viverra sapien eget, consequat nunc. Vestibulum tristique</p>-->
+<!--								<p class="tm-gallery-price">$75</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--				</div> &lt;!&ndash; gallery page 2 &ndash;&gt;-->
+<!--				-->
+<!--				&lt;!&ndash; gallery page 3 &ndash;&gt;-->
+<!--				<div id="tm-gallery-page-noodle" class="tm-gallery-page hidden">-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/08.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Noodle One</h4>-->
+<!--								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>-->
+<!--								<p class="tm-gallery-price">$12.50</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/07.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Noodle Second</h4>-->
+<!--								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>-->
+<!--								<p class="tm-gallery-price">$15.50</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/06.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Third Soft Noodle</h4>-->
+<!--								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>-->
+<!--								<p class="tm-gallery-price">$20.50</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/05.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Aliquam sagittis</h4>-->
+<!--								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>-->
+<!--								<p class="tm-gallery-price">$30.25</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/04.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Maecenas eget justo</h4>-->
+<!--								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>-->
+<!--								<p class="tm-gallery-price">$35.50</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+<!--					<article class="col-lg-3 col-md-4 col-sm-6 col-12 tm-gallery-item">-->
+<!--						<figure>-->
+<!--							<img src="{% static 'img/gallery/03.jpg' %}" alt="Image" class="img-fluid tm-gallery-img" />-->
+<!--							<figcaption>-->
+<!--								<h4 class="tm-gallery-title">Quisque et felis eros</h4>-->
+<!--								<p class="tm-gallery-description">Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</p>-->
+<!--								<p class="tm-gallery-price">$40.50</p>-->
+<!--							</figcaption>-->
+<!--						</figure>-->
+<!--					</article>-->
+
+				</div> <!-- gallery page 3 -->
+			</div>
+			<div class="tm-section tm-container-inner">
+				<div class="row">
+<!--					<div class="col-md-6">-->
+<!--						<figure class="tm-description-figure">-->
+<!--							<img src="{% static 'img/img-01.jpg' %}" alt="Image" class="img-fluid" />-->
+<!--						</figure>-->
+<!--					</div>-->
+<!--					<div class="col-md-6">-->
+<!--						<div class="tm-description-box"> -->
+<!--							<h4 class="tm-gallery-title">Maecenas nulla neque</h4>-->
+<!--							<p class="tm-mb-45">Redistributing this template as a downloadable ZIP file on any template collection site is strictly prohibited. You will need to <a rel="nofollow" href="https://templatemo.com/contact">talk to us</a> for additional permissions about our templates. Thank you.</p>-->
+<!--							<a href="about.html" class="tm-btn tm-btn-default tm-right">Read More</a>-->
+<!--						</div>-->
+<!--					</div>-->
+				</div>
+			</div>
+		</main>
+
+
+		<footer class="tm-footer text-center">
+<!--			<p>Copyright &copy; 2020 Simple House -->
+<!--            -->
+<!--            | Design: <a rel="nofollow" href="https://templatemo.com">TemplateMo</a></p>-->
+ <p align="right">Contact us on <br>mob no:9072408258<br>Email Id:Takeatrip@gmail.com</p>
+			<h3 style="color:blue"> Thankyou for visiting our page.We wish you A Good Day </h3>
+			<img src="{% static 'img/good day.jpg' %}" style="width:310px;height:300px;">
+		</footer>
+	</div>
+	<script src="{% static 'js/jquery.min.js' %}"></script>
+	<script src="{% static 'js/parallax.min.js' %}"></script>
+	<script>
+		$(document).ready(function(){
+			// Handle click on paging links
+			$('.tm-paging-link').click(function(e){
+				e.preventDefault();
+				
+				var page = $(this).text().toLowerCase();
+				$('.tm-gallery-page').addClass('hidden');
+				$('#tm-gallery-page-' + page).removeClass('hidden');
+				$('.tm-paging-link').removeClass('active');
+				$(this).addClass("active");
+			});
+		});
+	</script>
+</body>
+</html>

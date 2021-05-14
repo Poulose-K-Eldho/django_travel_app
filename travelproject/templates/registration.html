@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Welcome</title>
+</head>
+<body>
+<form action="register" method="post">
+    {% csrf_token %}
+    <input type="text" name="username" placeholder="username"><br>
+    <input type="text" name="first_name" placeholder="firstname"><br>
+    <input type="text" name="last_name" placeholder="lastname"><br>
+       <input type="email" name="email" placeholder="email"><br>
+    <input type="text" name="mobile number" placeholder="mobile_number"><br>
+       <input type="number" name="Number_of_members" placeholder="Number_of_members"><br>
+   <select name="dropdown">
+        <option value="Netherlands" selected>Netherlands</option>
+         <option value="Spain" selected>Spain</option>
+          <option value="Indonesia" selected>Indonesia</option>
+        <option value="Germany" selected>Germany</option>
+        <option value="Israel" selected>Israel</option>
+        <option value="Mexico" selected>Mexico</option>
+        <option value="Egypt" selected>Egypt</option>
+        <option value="New zealand" selected>New zealand</option>
+
+   </select><br>
+     <input type="password" name="password1" placeholder="password"><br>
+    <input type="password" name="password2" placeholder="confirm password"><br>
+<input type="submit" value="registration">
+</form>
+<div>
+    {% for message in messages %}
+ <h4>{{message}}</h4>
+    {% endfor %}
+</div>
+</body>
+</html>
